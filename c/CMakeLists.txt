@@ -19,7 +19,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/$<0:
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/$<0:>")
 
 add_executable(current-time
-	main.c
+	src/main.c
 )
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")

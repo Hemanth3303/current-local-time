@@ -2,7 +2,7 @@
 #include <time.h>
 
 int main(void) {
-	time_t now = time(0);
+	time_t now = time(NULL);
 	struct tm* timeInfo;
 
 	timeInfo = localtime(&now);
