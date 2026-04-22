@@ -91,9 +91,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 			PUBLIC
 				
 			PRIVATE
-				-static
-				-static-libgcc
-				-static-libstdc++
+
 		)
 	elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 		target_link_libraries(current-time
@@ -105,7 +103,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 			PUBLIC
 				
 			PRIVATE
-				-static
+
 		)
 	endif()
 endif()
@@ -119,28 +117,13 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 	)
 endif()
 
-if(CMAKE_BUILD_TYPE STREQUAL Debug)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_DEBUG}" CACHE STRING "CXX flags" FORCE)
-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS_DEBUG}" CACHE STRING "C flags" FORCE)
-	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS_DEBUG}" CACHE STRING "Linker flags" FORCE)
-	target_compile_definitions(current-time
-		PUBLIC
-				
-		PRIVATE
-			APP_DEBUG
-			DEBUG
-	)
-endif()
+target_compile_definitions(current-time
+	PUBLIC
 
-if(CMAKE_BUILD_TYPE STREQUAL Release)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_RELEASE}" CACHE STRING "CXX flags" FORCE)
-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS_RELEASE}" CACHE STRING "C flags" FORCE)
-	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS_RELEASE}" CACHE STRING "Linker flags" FORCE)
-	target_compile_definitions(current-time
-		PUBLIC
-				
-		PRIVATE
-			APP_RELEASE
-			NDEBUG
-	)
-endif()
+	PRIVATE
+		$<$<CONFIG:Debug>:APP_DEBUG>
+		$<$<CONFIG:Debug>:DEBUG>
+
+		$<$<CONFIG:Release>:APP_RELEASE>
+		$<$<CONFIG:Release>:NDEBUG>
+)
