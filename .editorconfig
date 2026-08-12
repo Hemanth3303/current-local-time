@@ -1,0 +1,42 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{c,h,cpp,hpp,cxx,hxx,c++,h++}]
+indent_style = tab
+tab_width = 4
+indent_size = 4
+
+[*.cmake,CMakeLists.txt]
+indent_style = tab
+tab_width = 4
+indent_size = 4
+
+[*.{cs,csx,java,js,py,php,rs}]
+indent_style = space
+indent_size = 4
+
+[*.{go,mod}]
+indent_style = tab
+tab_width = 4
+indent_size = 4
+
+[*.toml]
+indent_style = space
+indent_size = 4
+
+[*.{kts,gradle}]
+indent_style = space
+indent_size = 4
+
+[*.properties]
+indent_style = space
+indent_size = 4
+
+
+[*.{bat,cmd}]
+end_of_line = crlf

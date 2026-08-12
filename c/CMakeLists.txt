@@ -25,7 +25,7 @@ add_executable(current-time
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	target_compile_definitions(current-time
 		PUBLIC
-			
+
 		PRIVATE
 			NOMINMAX
 			_CRT_SECURE_NO_WARNINGS
@@ -35,19 +35,19 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	if (MSVC)
 		target_compile_options(current-time
 			PUBLIC
-				
+
 			PRIVATE
 		)
 	elseif (MINGW)
 		target_link_libraries(current-time
 			PUBLIC
-				
+
 			PRIVATE
 				m
 		)
 		target_link_options(current-time
 			PUBLIC
-				
+
 			PRIVATE
 				-static
 				-static-libgcc
@@ -55,12 +55,12 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 		target_link_libraries(current-time
 			PUBLIC
-				
+
 			PRIVATE
 		)
 		target_link_options(current-time
 			PUBLIC
-				
+
 			PRIVATE
 				-static
 		)
@@ -75,7 +75,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 	if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 		target_link_libraries(current-time
 			PUBLIC
-				
+
 			PRIVATE
 				dl
 				m
@@ -83,19 +83,19 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 		)
 		target_link_options(current-time
 			PUBLIC
-				
+
 			PRIVATE
 
 		)
 	elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 		target_link_libraries(current-time
 			PUBLIC
-				
+
 			PRIVATE
 		)
 		target_link_options(current-time
 			PUBLIC
-				
+
 			PRIVATE
 
 		)
@@ -105,7 +105,7 @@ endif()
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 	target_compile_definitions(current-time
 		PUBLIC
-				
+
 		PRIVATE
 			APP_OSX
 	)
